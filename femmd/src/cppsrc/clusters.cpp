@@ -125,14 +125,14 @@ void Clusters::addCellsToCluster(int cluster_index, int *cells, int ncells, real
 		real detDm = Dm.determinant();
 		real vol = detDm * one_over_ndim_factorial;
 		sys->elements.refVol[icell + cells_offset] = vol;
-		sys->elements.totRefVol += abs(vol);
+		sys->elements.totRefVol += fabs(vol);
 		Bm = Dm.inverse();
 		sys->elements.Bm[icell + cells_offset] = Bm;
 		sys->elements.I1[icell + cells_offset] = 0;
 		sys->elements.I2[icell + cells_offset] = 0;
 		if (vol <= 0) {
-			//printf("Error: neg vol: %f\n", vol);
-			//std::cout << Bm << "\n\n";
+			printf("Error: neg vol: %f\n", vol);
+			std::cout << Bm << "\n\n";
 		}
 
 	}
@@ -142,7 +142,7 @@ void Clusters::addCellsToCluster(int cluster_index, int *cells, int ncells, real
 	for (int itet = 0; itet < ncells; itet++) {
 		for (int j = 0; j < (NDIM+1); j++) {
 			int ip = sys->elements.tetras[itet + cells_offset][j];
-			sys->particles.mass[ip] += abs( cluster_density[cluster_index]*sys->elements.refVol[itet] )/ (NDIM+1);
+			sys->particles.mass[ip] += fabs( cluster_density[cluster_index]*sys->elements.refVol[itet] )/ (NDIM+1);
 		}
 	}
 	printf("Total Volume: %f\n", sys->elements.totRefVol);

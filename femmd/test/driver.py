@@ -15,7 +15,7 @@ import timeit
 def run0():
 
     print(os.getcwd())
-    os.chdir('c:\\tmp\\test1')
+    os.chdir('data')
     print(os.getcwd())
     print(dir(md))
     #md.system_c_main()
@@ -38,7 +38,8 @@ def run0():
     E=200
     k=50
 
-    md.system_init(L,L)
+    box = np.array([L,L])
+    md.system_init(box)
     #nodes = np.loadtxt("diskR1Vertices1.txt");
     #cells = np.loadtxt("diskR1Triangles1.txt") - 1;
     #nodes, cells = mdmesh.uniform_mesh_on_unit_circle(.2)

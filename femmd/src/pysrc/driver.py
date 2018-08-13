@@ -16,7 +16,8 @@ import timeit
 def run0():
 
     print(os.getcwd())
-    os.chdir('c:\\tmp\\test1')
+    data_dir = "data"
+    os.chdir(data_dir)
     print(os.getcwd())
     print(dir(md))
 
@@ -87,11 +88,12 @@ def run0():
     #xyzfile = fm.Saver(0,"test_test",pos)
     vtkfile = fm.Saver(1,"test_test",pos,vel=vel,cells=tet, I2=I2)
     #vtffile = fm.Saver(2,"test_test",upos,bonds=bonds,box=[Lx,Lx])
-    vtkfile.append(0);
+    vtkfile.append(0)
     walls = md.system_get_walls_pos()
     print("walls",walls)
     walls = [walls[0][0],walls[1][0],walls[0][1],walls[1][1]]
     print("walls",walls)
+
     plot = Plotter.Plotter(pos,vel,tet,box[0],box[1],'tripts1',I1,sigma) # 2 is the radius
     plot.update(0,walls,"")
     #plt.show()

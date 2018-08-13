@@ -78,5 +78,5 @@ void Bonds<NUMTYPE>::reset() {
 
 
 
-template class Bonds<float>;
+//template class Bonds<float>;
 template class Bonds<double>;

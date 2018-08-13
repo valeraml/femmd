@@ -13,7 +13,7 @@ import pdb
 def run2():
 
     print(os.getcwd())
-    os.chdir('c:\\tmp\\test1')
+    os.chdir('data')
     print(os.getcwd())
     print(dir(md))
 
