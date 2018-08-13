@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{b2266bd5-c2ca-461d-9c4a-346ee7aa287f}</ProjectGuid>
+    <ProjectHome>..\src\pysrc\</ProjectHome>
+    <StartupFile>driver.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId>{524ee6e8-f3e8-45ff-9715-5ebe56c42ab4}</InterpreterId>
+    <InterpreterVersion>3.5</InterpreterVersion>
+    <InterpreterArguments>-i</InterpreterArguments>
+    <EnableNativeCodeDebugging>True</EnableNativeCodeDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="cluster2D.py" />
+    <Compile Include="cluster3D.py" />
+    <Compile Include="driver.py" />
+    <Compile Include="femmd_module.py" />
+    <Compile Include="lj_2D.py" />
+    <Compile Include="mdmesh.py" />
+    <Compile Include="Plotter.py" />
+    <Compile Include="runT1_8.py" />
+    <Compile Include="test.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterpreterReference Include="{524ee6e8-f3e8-45ff-9715-5ebe56c42ab4}\3.5" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\vs\femmd\femmd.vcxproj">
+      <Name>femmd</Name>
+      <Project>{0574d3b4-af58-469d-9c6d-8258651d3782}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+</Project>
