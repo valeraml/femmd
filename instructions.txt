@@ -1,0 +1,37 @@
+Quick instruction for linux:
+
+I check the code on ubuntu
+
+Requirements:
+
+Need g++, I compiled with gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.10) 
+
+I use python 3, so you need numpy, matplotlib, scipy
+
+apt-get install python3-dev
+apt-get install python3-numpy
+apt-get install python3-matoplotlib
+apt-get install python3-scipy
+
+Clone the github repository
+git clone https://github.com/valeraml/femmd.git
+
+Compile the code:
+cd femmd/femmd
+python3 setup.py build_ext
+
+at this point it should compile, there are lots of warnings
+
+This builds a python module, the module is in the build/lib.linux-x86_64-3.5 directory, the file is:
+femmd.cpython-35m-x86_64-linux-gnu.so
+
+To test the code, we are going to copy this file to the pysrc directory
+
+cp build/lib.linux-x86_64-3.5/femmd.cpython-35m-x86_64-linux-gnu.so src/pysrc/
+
+In the pysrc we have quite a few python files that drive the calculation, lets try driver.py
+before we run this file, we need a directory for data, so in the pysrc directory create a data directory
+
+Then run the code, python3 driver.py
+
+This should work.
