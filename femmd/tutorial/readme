@@ -1,0 +1,5 @@
+Compile code from root directory using python3 setup.py build_ext
+copy file on build/lib.linux-x86_64-3.5/femmd.cpython-35m0x86-64-linux.gnu.so to this directory
+run files
+python3 lj_2D.py
+python3 cluster2D.py
