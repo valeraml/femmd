@@ -1,6 +1,7 @@
 import os
 import sys
-sys.path.append("../src/pysrc")
+#sys.path.append("../src/pysrc")
+sys.path.append("../femmdlib")
 import femmd as md
 import femmd_module as fm
 import math
