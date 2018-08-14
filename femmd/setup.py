@@ -12,6 +12,8 @@ print(source_list1)
 
 source_list = ['../src/bonds.cpp', '../src/driver.cpp', '../src/Elements.cpp', '../src/integrator.cpp', '../src/interactions.cpp', '../src/interface.cpp', '../src/md3dsystem.cpp', '../src/nn.cpp',  '../src/particles.cpp', '../src/properties.cpp']
 
+scripts1 = ['src/pysrc/femmd_module.py','src/pysrc/mdmesh.py','src/pysrc/Plotter.py']
+
 module1 = Extension('femmd', 
                 sources = source_list1,
                 include_dirs=[numpy.get_include()],
@@ -20,5 +22,6 @@ module1 = Extension('femmd',
 setup (name = 'femmd',
         version = '1.0',
         description = 'femmd package',
+        scripts = scripts1,
         ext_modules = [module1])
 

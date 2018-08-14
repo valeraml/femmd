@@ -1,6 +1,7 @@
 import os
 import sys
-sys.path.append("../src/pysrc")
+#sys.path.append("../src/pysrc")
+sys.path.append("../femmdlib")
 import femmd as md
 import femmd_module as fm
 import math
@@ -19,7 +20,10 @@ def run0():
 
     #Create a data directory for all data produced by the program
     print(os.getcwd())
-    os.chdir('data')
+    data_dir = 'data'
+    if not os.path.exists(data_dir):
+        os.makedirs(data_dir)
+    os.chdir(data_dir)
     print(os.getcwd())
     print(dir(md))
 
