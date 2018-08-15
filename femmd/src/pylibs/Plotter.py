@@ -38,7 +38,7 @@ class Plotter:
         self.xmax = xmax+self.dx
         self.ymax = ymax+self.dy
         self.type = type
-        self.size = 16
+        self.size = 10
         self.frame_count = 0
         self.savepngs = 0
         self.radius=sigma/2
@@ -53,7 +53,7 @@ class Plotter:
 
         plt.close()
         #self.fig, self.ax1 = plt.subplots()
-        self.fig = plt.figure()
+        self.fig = plt.figure(figsize=(self.size,self.size))
         self.ax1 = self.fig.gca()        
         self.fig.set_size_inches(self.size, self.size)
         self.ax1.set_xlim(self.xmin,self.xmax)
